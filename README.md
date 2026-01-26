@@ -11,30 +11,30 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 ### Music Sources (Resolvers)
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [Bandcamp](resolvers/bandcamp.axe) | Find and play music on Bandcamp | No |
-| [YouTube](resolvers/youtube.axe) | Play music from YouTube | No |
-| [Spotify](resolvers/spotify.axe) | Spotify integration | Yes |
-| [Apple Music](resolvers/applemusic.axe) | Apple Music integration | Yes |
-| [Local Files](resolvers/localfiles.axe) | Play local music files | No |
+| [Bandcamp](bandcamp.axe) | Find and play music on Bandcamp | No |
+| [YouTube](youtube.axe) | Play music from YouTube | No |
+| [Spotify](spotify.axe) | Spotify integration | Yes |
+| [Apple Music](applemusic.axe) | Apple Music integration | Yes |
+| [Local Files](localfiles.axe) | Play local music files | No |
 
 ### Scrobblers
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [Last.fm](resolvers/lastfm.axe) | Scrobble to Last.fm | Yes |
-| [ListenBrainz](resolvers/listenbrainz.axe) | Scrobble to ListenBrainz | Yes |
-| [Libre.fm](resolvers/librefm.axe) | Scrobble to Libre.fm | Yes |
+| [Last.fm](lastfm.axe) | Scrobble to Last.fm | Yes |
+| [ListenBrainz](listenbrainz.axe) | Scrobble to ListenBrainz | Yes |
+| [Libre.fm](librefm.axe) | Scrobble to Libre.fm | Yes |
 
 ### Metadata
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [Discogs](resolvers/discogs.axe) | Album and artist metadata | No |
-| [Wikipedia](resolvers/wikipedia.axe) | Artist biographies | No |
+| [Discogs](discogs.axe) | Album and artist metadata | No |
+| [Wikipedia](wikipedia.axe) | Artist biographies | No |
 
 ### AI Assistants
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [ChatGPT](resolvers/chatgpt.axe) | OpenAI integration | Yes |
-| [Gemini](resolvers/gemini.axe) | Google AI integration | Yes |
+| [ChatGPT](chatgpt.axe) | OpenAI integration | Yes |
+| [Gemini](gemini.axe) | Google AI integration | Yes |
 
 ## Creating a Plugin
 
