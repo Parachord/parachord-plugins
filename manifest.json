@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-26",
+  "plugins": [
+    {
+      "id": "bandcamp",
+      "name": "Bandcamp",
+      "version": "1.2.0",
+      "type": "resolver",
+      "description": "Find and purchase music on Bandcamp",
+      "icon": "🎸",
+      "color": "#629AA9",
+      "requiresAuth": false
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "version": "1.0.0",
+      "type": "resolver",
+      "description": "Search and play music videos from YouTube",
+      "icon": "🎥",
+      "color": "#FF0000",
+      "requiresAuth": false
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "version": "1.0.0",
+      "type": "resolver",
+      "description": "Stream from Spotify via Spotify Connect API",
+      "icon": "♫",
+      "color": "#1DB954",
+      "requiresAuth": true
+    },
+    {
+      "id": "applemusic",
+      "name": "Apple Music",
+      "version": "1.0.0",
+      "type": "resolver",
+      "description": "Apple Music integration",
+      "icon": "🍎",
+      "color": "#FC3C44",
+      "requiresAuth": true
+    },
+    {
+      "id": "localfiles",
+      "name": "Local Files",
+      "version": "1.0.0",
+      "type": "resolver",
+      "description": "Play music from your local library",
+      "icon": "📁",
+      "color": "#6366f1",
+      "requiresAuth": false
+    },
+    {
+      "id": "lastfm",
+      "name": "Last.fm",
+      "version": "1.0.0",
+      "type": "scrobbler",
+      "description": "Personalized recommendations from your Last.fm history",
+      "icon": "🎧",
+      "color": "#D51007",
+      "requiresAuth": true
+    },
+    {
+      "id": "listenbrainz",
+      "name": "ListenBrainz",
+      "version": "1.0.0",
+      "type": "scrobbler",
+      "description": "Open-source music listening data and recommendations",
+      "icon": "🎵",
+      "color": "#353070",
+      "requiresAuth": true
+    },
+    {
+      "id": "librefm",
+      "name": "Libre.fm",
+      "version": "1.0.0",
+      "type": "scrobbler",
+      "description": "Open-source scrobbling service",
+      "icon": "🎵",
+      "color": "#4CAF50",
+      "requiresAuth": true
+    },
+    {
+      "id": "discogs",
+      "name": "Discogs",
+      "version": "1.0.0",
+      "type": "metadata",
+      "description": "Artist biographies and images from Discogs",
+      "icon": "📀",
+      "color": "#333333",
+      "requiresAuth": false
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "version": "1.0.0",
+      "type": "metadata",
+      "description": "Artist biographies and images from Wikipedia",
+      "icon": "📚",
+      "color": "#000000",
+      "requiresAuth": false
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "version": "1.0.0",
+      "type": "ai",
+      "description": "Generate playlists using ChatGPT",
+      "icon": "🤖",
+      "color": "#10a37f",
+      "requiresAuth": true
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "version": "1.0.0",
+      "type": "ai",
+      "description": "Generate playlists using Google Gemini",
+      "icon": "✦",
+      "color": "#4285f4",
+      "requiresAuth": true
+    }
+  ]
+}
