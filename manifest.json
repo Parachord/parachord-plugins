@@ -1,7 +1,18 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2025-01-26",
+  "lastUpdated": "2025-01-28",
   "plugins": [
+    {
+     "id": "soundcloud",
+      "name": "SoundCloud",
+      "version": "1.0.0",
+      "type": "resolver",
+      "description": "Search and stream music from SoundCloud",
+      "icon": "☁",
+      "color": "#FF5500",
+      "requiresAuth": true
+    },
+
     {
       "id": "bandcamp",
       "name": "Bandcamp",
