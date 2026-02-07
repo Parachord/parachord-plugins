@@ -1,137 +1,307 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2025-01-28",
+  "lastUpdated": "2026-01-24T20:00:00Z",
   "plugins": [
     {
-     "id": "soundcloud",
-      "name": "SoundCloud",
+      "id": "spotify",
+      "name": "Spotify",
       "version": "1.0.0",
-      "type": "resolver",
-      "description": "Search and stream music from SoundCloud",
-      "icon": "☁",
-      "color": "#FF5500",
-      "requiresAuth": true
+      "author": "Parachord Team",
+      "description": "Stream from Spotify via Spotify Connect API. Requires Spotify Premium for remote playback.",
+      "icon": "♫",
+      "color": "#1DB954",
+      "homepage": "https://spotify.com",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": true,
+        "browse": false,
+        "urlLookup": false
+      },
+      "requiresAuth": true,
+      "builtin": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/spotify.axe",
+      "category": "streaming",
+      "tags": ["streaming", "subscription", "premium"]
     },
-
     {
       "id": "bandcamp",
       "name": "Bandcamp",
-      "version": "1.2.0",
-      "type": "resolver",
-      "description": "Find and purchase music on Bandcamp",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Find and purchase music on Bandcamp. Opens tracks in browser for streaming.",
       "icon": "🎸",
       "color": "#629AA9",
-      "requiresAuth": false
+      "homepage": "https://bandcamp.com",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": false,
+        "browse": false,
+        "urlLookup": true
+      },
+      "requiresAuth": false,
+      "builtin": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/bandcamp.axe",
+      "category": "streaming",
+      "tags": ["streaming", "purchase", "independent", "discovery"]
+    },
+    {
+      "id": "soundcloud",
+      "name": "SoundCloud",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Search and stream music from SoundCloud. Free with optional Go+ subscription. Requires OAuth login.",
+      "icon": "☁",
+      "color": "#FF5500",
+      "homepage": "https://soundcloud.com",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": true,
+        "browse": false,
+        "urlLookup": true
+      },
+      "requiresAuth": true,
+      "builtin": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/soundcloud.axe",
+      "category": "streaming",
+      "tags": ["streaming", "free", "indie", "soundcloud", "oauth"]
     },
     {
       "id": "youtube",
       "name": "YouTube",
       "version": "1.0.0",
-      "type": "resolver",
-      "description": "Search and play music videos from YouTube",
+      "author": "Parachord Team",
+      "description": "Search and play music videos from YouTube. Free with ads. Opens videos in your browser.",
       "icon": "🎥",
       "color": "#FF0000",
-      "requiresAuth": false
-    },
-    {
-      "id": "spotify",
-      "name": "Spotify",
-      "version": "1.0.0",
-      "type": "resolver",
-      "description": "Stream from Spotify via Spotify Connect API",
-      "icon": "♫",
-      "color": "#1DB954",
-      "requiresAuth": true
+      "homepage": "https://youtube.com",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": true,
+        "browse": false,
+        "urlLookup": true
+      },
+      "requiresAuth": false,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/youtube.axe",
+      "category": "streaming",
+      "tags": ["streaming", "free", "video", "youtube"]
     },
     {
       "id": "applemusic",
       "name": "Apple Music",
       "version": "1.0.0",
-      "type": "resolver",
-      "description": "Apple Music integration",
+      "author": "Parachord Team",
+      "description": "Stream music via Apple Music with MusicKit. Requires Apple Music subscription and MusicKit developer token.",
       "icon": "🍎",
-      "color": "#FC3C44",
-      "requiresAuth": true
+      "color": "#FA243C",
+      "homepage": "https://music.apple.com",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": true,
+        "browse": false,
+        "urlLookup": true
+      },
+      "requiresAuth": true,
+      "builtin": true,
+      "category": "streaming",
+      "tags": ["streaming", "subscription", "apple", "musickit", "url-lookup"]
     },
     {
       "id": "localfiles",
       "name": "Local Files",
       "version": "1.0.0",
-      "type": "resolver",
-      "description": "Play music from your local library",
+      "author": "Parachord Team",
+      "description": "Play music from your local library. Configure watch folders in settings to index your music collection.",
       "icon": "📁",
       "color": "#6366f1",
-      "requiresAuth": false
+      "homepage": "",
+      "capabilities": {
+        "resolve": true,
+        "search": true,
+        "stream": true,
+        "browse": false,
+        "urlLookup": false
+      },
+      "requiresAuth": false,
+      "builtin": true,
+      "category": "local",
+      "tags": ["local", "files", "library", "offline", "free"]
     },
     {
-      "id": "lastfm",
-      "name": "Last.fm",
+      "id": "claude",
+      "name": "Claude",
+      "type": "meta-service",
       "version": "1.0.0",
-      "type": "scrobbler",
-      "description": "Personalized recommendations from your Last.fm history",
-      "icon": "🎧",
-      "color": "#D51007",
-      "requiresAuth": true
-    },
-    {
-      "id": "listenbrainz",
-      "name": "ListenBrainz",
-      "version": "1.0.0",
-      "type": "scrobbler",
-      "description": "Open-source music listening data and recommendations",
-      "icon": "🎵",
-      "color": "#353070",
-      "requiresAuth": true
-    },
-    {
-      "id": "librefm",
-      "name": "Libre.fm",
-      "version": "1.0.0",
-      "type": "scrobbler",
-      "description": "Open-source scrobbling service",
-      "icon": "🎵",
-      "color": "#4CAF50",
-      "requiresAuth": true
-    },
-    {
-      "id": "discogs",
-      "name": "Discogs",
-      "version": "1.0.0",
-      "type": "metadata",
-      "description": "Artist biographies and images from Discogs",
-      "icon": "📀",
-      "color": "#333333",
-      "requiresAuth": false
-    },
-    {
-      "id": "wikipedia",
-      "name": "Wikipedia",
-      "version": "1.0.0",
-      "type": "metadata",
-      "description": "Artist biographies and images from Wikipedia",
-      "icon": "📚",
-      "color": "#000000",
-      "requiresAuth": false
+      "author": "Parachord Team",
+      "description": "Anthropic's Claude - thoughtful and capable AI assistant.",
+      "icon": "🧡",
+      "color": "#D97757",
+      "homepage": "https://anthropic.com",
+      "capabilities": {
+        "chat": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/claude.axe",
+      "category": "ai",
+      "tags": ["ai", "chat", "anthropic", "claude"]
     },
     {
       "id": "chatgpt",
       "name": "ChatGPT",
+      "type": "meta-service",
       "version": "1.0.0",
-      "type": "ai",
-      "description": "Generate playlists using ChatGPT",
+      "author": "Parachord Team",
+      "description": "Generate playlists using ChatGPT. Requires your own API key from OpenAI.",
       "icon": "🤖",
       "color": "#10a37f",
-      "requiresAuth": true
+      "homepage": "https://platform.openai.com",
+      "capabilities": {
+        "generate": true,
+        "chat": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/chatgpt.axe",
+      "category": "ai",
+      "tags": ["ai", "playlist", "generation", "openai", "chatgpt"]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama (Local)",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Run AI locally with Ollama. Free, private, works offline.",
+      "icon": "🦙",
+      "color": "#000000",
+      "homepage": "https://ollama.ai",
+      "capabilities": {
+        "chat": true
+      },
+      "requiresAuth": false,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/ollama.axe",
+      "category": "ai",
+      "tags": ["ai", "chat", "local", "ollama", "free", "offline"]
     },
     {
       "id": "gemini",
       "name": "Google Gemini",
+      "type": "meta-service",
       "version": "1.0.0",
-      "type": "ai",
-      "description": "Generate playlists using Google Gemini",
+      "author": "Parachord Team",
+      "description": "Generate playlists using Google Gemini. Requires your own API key from Google AI Studio.",
       "icon": "✦",
       "color": "#4285f4",
-      "requiresAuth": true
+      "homepage": "https://ai.google.dev",
+      "capabilities": {
+        "generate": true,
+        "chat": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/gemini.axe",
+      "category": "ai",
+      "tags": ["ai", "playlist", "generation", "google", "gemini"]
+    },
+    {
+      "id": "lastfm",
+      "name": "Last.fm",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Personalized music recommendations powered by your Last.fm listening history.",
+      "icon": "🎧",
+      "color": "#D51007",
+      "homepage": "https://last.fm",
+      "capabilities": {
+        "recommendations": true,
+        "metadata": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/lastfm.axe",
+      "category": "social",
+      "tags": ["social", "scrobbling", "recommendations", "metadata"]
+    },
+    {
+      "id": "listenbrainz",
+      "name": "ListenBrainz",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Open-source music listening data and recommendations powered by your ListenBrainz history.",
+      "icon": "🎵",
+      "color": "#353070",
+      "homepage": "https://listenbrainz.org",
+      "capabilities": {
+        "recommendations": true,
+        "metadata": true,
+        "listeningHistory": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/listenbrainz.axe",
+      "category": "social",
+      "tags": ["social", "scrobbling", "recommendations", "open-source", "metadata"]
+    },
+    {
+      "id": "librefm",
+      "name": "Libre.fm",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Open-source scrobbling service - a free alternative to Last.fm.",
+      "icon": "🎵",
+      "color": "#4CAF50",
+      "homepage": "https://libre.fm",
+      "capabilities": {
+        "scrobbling": true
+      },
+      "requiresAuth": true,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/librefm.axe",
+      "category": "social",
+      "tags": ["social", "scrobbling", "open-source", "free"]
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Artist biographies and images from Wikipedia. No authentication required.",
+      "icon": "📚",
+      "color": "#000000",
+      "homepage": "https://www.wikipedia.org",
+      "capabilities": {
+        "metadata": true,
+        "biography": true,
+        "artistImages": true
+      },
+      "requiresAuth": false,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/wikipedia.axe",
+      "category": "metadata",
+      "tags": ["metadata", "biography", "images", "free", "open-source"]
+    },
+    {
+      "id": "discogs",
+      "name": "Discogs",
+      "type": "meta-service",
+      "version": "1.0.0",
+      "author": "Parachord Team",
+      "description": "Artist biographies and images from Discogs. Optional token improves rate limits.",
+      "icon": "📀",
+      "color": "#333333",
+      "homepage": "https://www.discogs.com",
+      "capabilities": {
+        "metadata": true,
+        "biography": true,
+        "artistImages": true
+      },
+      "requiresAuth": false,
+      "downloadUrl": "https://raw.githubusercontent.com/Parachord/parachord-plugins/main/discogs.axe",
+      "category": "metadata",
+      "tags": ["metadata", "biography", "images", "discography", "vinyl"]
     }
-  ]
+  ],
+  "categories": ["streaming", "purchase", "metadata", "social", "local", "ai"]
 }
