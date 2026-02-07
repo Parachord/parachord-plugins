@@ -11,30 +11,20 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 ### Music Sources (Resolvers)
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [Bandcamp](bandcamp.axe) | Find and play music on Bandcamp | No |
-| [YouTube](youtube.axe) | Play music from YouTube | No |
-| [Spotify](spotify.axe) | Spotify integration | Yes |
+| [Apple Music](applemusic.axe) | Stream via MusicKit with search, URL lookup, and album/playlist support | Yes |
+| [Bandcamp](bandcamp.axe) | Find and purchase music on Bandcamp | No |
 | [SoundCloud](soundcloud.axe) | Search and stream music from SoundCloud | Yes |
-| [Local Files](localfiles.axe) | Play local music files | No |
-
-### Scrobblers
-| Plugin | Description | Auth Required |
-|--------|-------------|---------------|
-| [Last.fm](lastfm.axe) | Scrobble to Last.fm | Yes |
-| [ListenBrainz](listenbrainz.axe) | Scrobble to ListenBrainz | Yes |
-| [Libre.fm](librefm.axe) | Scrobble to Libre.fm | Yes |
-
-### Metadata
-| Plugin | Description | Auth Required |
-|--------|-------------|---------------|
-| [Discogs](discogs.axe) | Album and artist metadata | No |
-| [Wikipedia](wikipedia.axe) | Artist biographies | No |
+| [Spotify](spotify.axe) | Spotify integration via Connect API | Yes |
 
 ### AI Assistants
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
-| [ChatGPT](chatgpt.axe) | OpenAI integration | Yes |
-| [Gemini](gemini.axe) | Google AI integration | Yes |
+| [ChatGPT](chatgpt.axe) | Generate playlists and chat using OpenAI | Yes |
+| [Claude](claude.axe) | Anthropic's Claude AI assistant | Yes |
+| [Gemini](gemini.axe) | Generate playlists and chat using Google Gemini | Yes |
+| [Ollama](ollama.axe) | Run AI locally with Ollama - free, private, works offline | No |
+
+Additional plugins (scrobblers, metadata providers, and more music sources) are available through the Parachord plugin marketplace. See [manifest.json](manifest.json) for the full catalog.
 
 ## Creating a Plugin
 
@@ -89,9 +79,11 @@ Plugins are `.axe` files with the following structure:
 - **stream**: Provides direct audio streams
 - **browse**: Can browse catalogs/charts/playlists
 - **urlLookup**: Can extract track info from URLs
+- **chat**: Can handle conversational AI interactions
 
 ### Implementation Functions
 
+#### Resolver Functions
 | Function | Purpose | Parameters |
 |----------|---------|------------|
 | `init` | Initialize the plugin | `config` |
@@ -101,6 +93,13 @@ Plugins are `.axe` files with the following structure:
 | `play` | Play a track | `track`, `config` |
 | `lookupUrl` | Get track info from URL | `url`, `config` |
 | `lookupAlbum` | Get album tracks from URL | `url`, `config` |
+| `lookupPlaylist` | Get playlist tracks from URL | `url`, `config` |
+
+#### AI Functions
+| Function | Purpose | Parameters |
+|----------|---------|------------|
+| `chat` | Conversational AI interaction | `messages`, `tools`, `config` |
+| `generate` | Generate playlists from prompts | `prompt`, `context`, `config` |
 
 ## Contributing
 
