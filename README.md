@@ -14,7 +14,7 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 | [Bandcamp](bandcamp.axe) | Find and play music on Bandcamp | No |
 | [YouTube](youtube.axe) | Play music from YouTube | No |
 | [Spotify](spotify.axe) | Spotify integration | Yes |
-| [Apple Music](applemusic.axe) | Apple Music integration | Yes |
+| [SoundCloud](soundcloud.axe) | Search and stream music from SoundCloud | Yes |
 | [Local Files](localfiles.axe) | Play local music files | No |
 
 ### Scrobblers
@@ -105,7 +105,7 @@ Plugins are `.axe` files with the following structure:
 ## Contributing
 
 1. Fork this repository
-2. Create your plugin in `resolvers/`
+2. Create your `.axe` plugin file in the repository root
 3. Test it locally in Parachord
 4. Submit a pull request
 
