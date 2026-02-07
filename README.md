@@ -15,6 +15,21 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 | [Bandcamp](bandcamp.axe) | Find and purchase music on Bandcamp | No |
 | [SoundCloud](soundcloud.axe) | Search and stream music from SoundCloud | Yes |
 | [Spotify](spotify.axe) | Spotify integration via Connect API | Yes |
+| [YouTube](youtube.axe) | Play music from YouTube | No |
+| [Local Files](localfiles.axe) | Play local music files | No |
+
+### Scrobblers
+| Plugin | Description | Auth Required |
+|--------|-------------|---------------|
+| [Last.fm](lastfm.axe) | Scrobble to Last.fm | Yes |
+| [ListenBrainz](listenbrainz.axe) | Scrobble to ListenBrainz | Yes |
+| [Libre.fm](librefm.axe) | Scrobble to Libre.fm | Yes |
+
+### Metadata
+| Plugin | Description | Auth Required |
+|--------|-------------|---------------|
+| [Discogs](discogs.axe) | Album and artist metadata | No |
+| [Wikipedia](wikipedia.axe) | Artist biographies | No |
 
 ### AI Assistants
 | Plugin | Description | Auth Required |
@@ -24,7 +39,7 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 | [Gemini](gemini.axe) | Generate playlists and chat using Google Gemini | Yes |
 | [Ollama](ollama.axe) | Run AI locally with Ollama - free, private, works offline | No |
 
-Additional plugins (scrobblers, metadata providers, and more music sources) are available through the Parachord plugin marketplace. See [manifest.json](manifest.json) for the full catalog.
+See [manifest.json](manifest.json) for the full plugin marketplace catalog.
 
 ## Creating a Plugin
 
