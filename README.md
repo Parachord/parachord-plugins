@@ -116,6 +116,20 @@ Plugins are `.axe` files with the following structure:
 | `chat` | Conversational AI interaction | `messages`, `tools`, `config` |
 | `generate` | Generate playlists from prompts | `prompt`, `context`, `config` |
 
+### Resolver Result Shape
+
+`search` and `resolve` return result objects that get spread into `track.sources[resolverId]` via `{ ...result, confidence }`. The shape is conventional rather than typed — fields a resolver populates show up as `track.sources[resolverId].<field>`. Required fields are obvious from the resolver implementations (`id`, `title`, `artist`, `album`, `duration`). The interesting set is the **optional cross-cutting metadata** that downstream consumers walk for, regardless of which resolver populated it:
+
+| Field | Type | When to populate |
+|-------|------|------------------|
+| `isrc` | `string` | Whenever the upstream API exposes a recording ISRC. Normalize to upper-case + trimmed, format `[A-Z]{2}[A-Z0-9]{3}\d{7}`. Validate before storing — drop malformed values rather than emitting them. Currently captured by: Spotify (`external_ids.isrc` on `/v1/search`, `/v1/tracks/{id}`, `/v1/playlists/{id}/tracks`), Apple Music native MusicKit (`song.isrc` from catalog), local files (ID3 TSRC / Vorbis ISRC / MP4 atom via music-metadata's `common.isrc`). Bandcamp / SoundCloud / YouTube / iTunes Search don't expose ISRC; leave undefined. |
+
+#### Why cross-cutting metadata goes on the source record
+
+Resolver-specific identifiers (`spotifyId`, `appleMusicId`, `bandcampUrl`, `youtubeId`) stay on the source record for the resolver that owns them — they only make sense in that context. Cross-cutting metadata like ISRC identifies the underlying *recording*, not the service's view of it, so it belongs alongside the per-source fields and downstream consumers can walk `track.sources[*].isrc` to accept the first valid value from any resolver that captured it. The same principle generalizes to other recording-keyed metadata that might land later (BPM, key, recording-MBID, etc.).
+
+Consumers in the Parachord desktop client use `window.pickTrackIsrc(track)` (defined in `app.js`) which checks top-level `track.isrc` first, then walks sources, skipping `noMatch` entries. Current consumers: the ISRC → recording-MBID fallback in `resolveMbidForLove` and `enrichTrackWithMbid`, and the Achordion `track-links/submit` ISRC-only fallback. New consumers should reuse `pickTrackIsrc` rather than reading individual fields directly.
+
 ## Contributing
 
 1. Fork this repository
