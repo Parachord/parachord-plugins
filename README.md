@@ -144,7 +144,7 @@ Consumers in the Parachord desktop client use `window.pickTrackIsrc(track)` (def
 - Don't hardcode API keys - use the config system
 - Test with various edge cases
 - Update this README with your plugin
-- Respect each service's copy protection. A plugin must not decrypt, record, download or save protected streams, extract decryption keys, or unlock tiers or content the user's subscription doesn't include. Protected audio has to play through the service's own player or official API, with the user's own account. A plugin that tries to get around a service's protections won't be accepted, and is removed from the marketplace if one slips through. (Parachord's own stance is in the [main README](https://github.com/Parachord/parachord#subscriptions-and-copy-protection).)
+- Respect each service's copy protection. A plugin must not decrypt, record, download or save protected streams, extract decryption keys, or unlock tiers or content the user's subscription doesn't include. Protected audio has to play with the user's own account, through the service's own player, its official API, or the same endpoints its own web player uses, with the stream and its license coming from the service. Where the service counts plays, the plugin has to report them to it the way the service's own player does. A plugin that tries to get around a service's protections won't be accepted, and is removed from the marketplace if one slips through. (Parachord's own stance is in the [main README](https://github.com/Parachord/parachord#subscriptions-and-copy-protection).)
 
 ## License
 
