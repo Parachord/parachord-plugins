@@ -94,7 +94,14 @@ Plugins are `.axe` files with the following structure:
 - **stream**: Provides direct audio streams
 - **browse**: Can browse catalogs/charts/playlists
 - **urlLookup**: Can extract track info from URLs
+- **albumSearch**: Can find an album by name (the album-page catalog fallback)
+- **artistImage**: Can find a photo of an artist by name
+- **html5Stream**: The host plays the URL the plugin's `getStreamUrl` returns
+- **widevine**: The host plays the service's DRM-protected stream
+- **embedPlayer**: The host plays the track in the service's own embeddable player (SoundCloud's widget), through a host adapter named in a top-level `"embedPlayer": { "adapter": "<name>" }` block
 - **chat**: Can handle conversational AI interactions
+
+Capability values are always `true` or `false`; the mobile apps read them as booleans and drop a plugin whose capabilities don't parse that way. `html5Stream`, `widevine` and `embedPlayer` hand playback to the app, which must support them. A plugin that needs a newer app than some users have declares `manifest.minAppVersion` per platform (`desktop`, `android`, `ios`); apps below it keep their current copy. The full list and each contract are in the [plugin authoring guide](https://github.com/Parachord/parachord/blob/main/docs/architecture/plugins.md#authoring-a-plugin-axe-format).
 
 ### Implementation Functions
 
