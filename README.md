@@ -11,10 +11,11 @@ Plugins extend Parachord's capabilities by adding support for music services, sc
 ### Music Sources (Resolvers)
 | Plugin | Description | Auth Required |
 |--------|-------------|---------------|
+| [Amazon Music](amazonmusic.axe) | Play Amazon Music in Parachord's own player, with album search, artist photos and playlist import. Playing needs Music Unlimited; with Prime it's used for album art, artist photos and links | Yes |
 | [Apple Music](applemusic.axe) | Stream via MusicKit with search, URL lookup, and album/playlist support | Yes |
 | [Bandcamp](bandcamp.axe) | Find and purchase music on Bandcamp | No |
 | [SoundCloud](soundcloud.axe) | Search and stream music from SoundCloud | Yes |
-| [Spotify](spotify.axe) | Spotify integration via Connect API | Yes |
+| [Spotify](spotify.axe) | Spotify integration via Connect API. Playing needs Premium; with Spotify Free it's used for search, playlists and links | Yes |
 | [YouTube](youtube.axe) | Play music from YouTube | No |
 | [Local Files](localfiles.axe) | Play local music files | No |
 
@@ -112,10 +113,19 @@ Capability values are always `true` or `false`; the mobile apps read them as boo
 | `cleanup` | Clean up resources | none |
 | `search` | Search for tracks | `query`, `config` |
 | `resolve` | Find playable source | `artist`, `track`, `album`, `config` |
-| `play` | Play a track | `track`, `config` |
+| `play` | Play a track: truthy on success, falsy to try the next source, or throw `plan-ineligible` when the account's plan can't play it (see below) | `track`, `config` |
 | `lookupUrl` | Get track info from URL | `url`, `config` |
 | `lookupAlbum` | Get album tracks from URL | `url`, `config` |
 | `lookupPlaylist` | Get playlist tracks from URL | `url`, `config` |
+
+#### Plans that can't play on demand
+
+Some services have a tier that can search, browse and sync but can't play a chosen track on demand: Amazon Prime (vs Music Unlimited), Spotify Free (vs Premium). Parachord 0.9.12 and later keep such a plugin enabled for what it still does (search, album art, artist photos, links, playlists) and leave it out of playback: no source icons, no playback priority number, never picked as a source, and Settings says why.
+
+- **When the service refuses a play because of the plan**, `play()` throws an error with `reason: 'plan-ineligible'` and, if known, `planKey` (the plan as the service names it, e.g. `'free'`), instead of returning `false`. A plain `false` reads as a missing device or a bad match. Throw it only when `window.__parachordNotePlanRefusal` exists, return `false` otherwise (older apps and the mobile clients), and declare `"minAppVersion": { "desktop": "0.9.12" }`. [`spotify.axe`](spotify.axe) 1.3.0 is the reference: it does this on Spotify's 403 `PREMIUM_REQUIRED`.
+- **If the service also refuses searches on that plan**, report it as not-ready (`err.notReady = true`, `err.code = 'plan-ineligible'`) rather than an empty result, so nothing is cached as a miss and an upgrade searches again.
+
+The details are in the [plugin authoring guide](https://github.com/Parachord/parachord/blob/main/docs/architecture/plugins.md#plans-that-cant-play-on-demand-plan-ineligible).
 
 #### AI Functions
 | Function | Purpose | Parameters |
