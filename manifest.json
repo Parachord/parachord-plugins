@@ -550,7 +550,7 @@
     {
       "id": "amazonmusic",
       "name": "Amazon Music",
-      "version": "1.8.2",
+      "version": "1.9.0",
       "author": "Parachord Team",
       "description": "Plays Amazon Music through the shared Widevine player (DASH + license via Amazon session). Does not use the Amazon Music desktop app.",
       "icon": "🎵",
@@ -562,7 +562,10 @@
         "stream": true,
         "browse": false,
         "urlLookup": true,
-        "mobile": false
+        "mobile": false,
+        "albumSearch": true,
+        "artistImage": true,
+        "recommendations": true
       },
       "requiresAuth": false,
       "builtin": true,
