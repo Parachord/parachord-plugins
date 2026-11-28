@@ -303,7 +303,7 @@
       "id": "listenbrainz",
       "name": "ListenBrainz",
       "type": "meta-service",
-      "version": "1.6.13",
+      "version": "1.6.14",
       "author": "Parachord Team",
       "description": "Open-source music listening data and recommendations powered by your ListenBrainz history.",
       "icon": "🎵",
